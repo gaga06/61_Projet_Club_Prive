@@ -1,12 +1,17 @@
 <p id="notice"><%= notice %></p>
-
+<br>
+<h3> <%= @user.first_name %>, voici ta page: </h3>
+<br>
+<br>
+<h5> Pour rappel, les informations que tu as complétées sont les suivantes: </h5>
+<br>
 <p>
-  <strong>First name:</strong>
+  <strong>Prénom:</strong>
   <%= @user.first_name %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
+  <strong>Nom:</strong>
   <%= @user.last_name %>
 </p>
 
@@ -15,10 +20,12 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+
+Voici le lien pour accéder à la page de notre Club secret:
+<%= link_to 'Cette fameuse page', club_path %>
+<br>
+<br>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

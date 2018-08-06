@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @user = users(:one)
+  def setup do
+    @user = users(first_name: 'example', last_name: 'LASTNAME', email: 'user@example.com', password_digest: 'popopo')
   end
 
   test "should get index" do
@@ -43,6 +43,19 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       delete user_url(@user)
     end
 
-    assert_redirected_to users_url
-  end
+  test "should be valid" do
+    assert @user.valid?
+    end
+
+    test "first_name should be present" do
+      @user.first_name= " "
+      assert_not @user.valid
+    end
+
+
+  #test "first_name should no be blank"
+
+
+
+  #end
 end

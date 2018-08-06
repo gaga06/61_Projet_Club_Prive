@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+       <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="<%= home_path%>">HOME<span class="sr-only">(current)</span></a>
+          </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="<%= club_path%>">LE CLUB<span class="sr-only">(current)</span></a>
+          </li>
+          <% if logged_in? %>
+          <li class="nav-item">
+
+            <a class="nav-link" href="<%= user_path(current_user.id) %>">Mon compte</a>
+          </li>
+          <li class="nav-item">
+          <span class="nav-link disabled">
+          <%= link_to "Se déconnecter", logout_path, method: :delete  %>
+        </span>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="<%= signup_path %>">S'inscrire</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link disabled" href="<%= login_path %>">Se connecter</a>
+          </li>
+          <% end %>
+
+       </ul>
+    </nav>
+
+
+
