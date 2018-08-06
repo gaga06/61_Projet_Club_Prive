@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  def setup do
+  def setup
     @user = users(first_name: 'example', last_name: 'LASTNAME', email: 'user@example.com', password_digest: 'popopo')
   end
 
@@ -42,20 +42,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('User.count', -1) do
       delete user_url(@user)
     end
+  end
 
   test "should be valid" do
     assert @user.valid?
     end
 
-    test "first_name should be present" do
-      @user.first_name= " "
-      assert_not @user.valid
-    end
-
-
-  #test "first_name should no be blank"
-
-
-
-  #end
 end

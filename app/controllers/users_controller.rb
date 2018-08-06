@@ -44,7 +44,6 @@ end
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to club_path, notice: 'Bravo, vous êtes bien enregistrés chez nous' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -72,7 +71,7 @@ end
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to home_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
