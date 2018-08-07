@@ -44,6 +44,7 @@ end
 
     respond_to do |format|
       if @user.save
+        format.html { redirect_to users_path, notice: 'Vous avez bien créé votre compte' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

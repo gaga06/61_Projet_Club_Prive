@@ -1,14 +1,30 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+include SessionsHelper
+  def setup
+    @user = users(:mathilde)
+  end
+
   test "should get home" do
-    get static_pages_home_url
+    get home_path
     assert_response :success
   end
 
-  test "should get club" do
-    get static_pages_club_url
+  test "get club page when logged in" do
+    get home_path
+    assert logged_in?
+    get club_path
     assert_response :success
+  end
+
+  test "can't get club page when logout" do
+    get home_path
+    assert_not logged_in?
+    get club_path
+    assert_response :failed
   end
 
 end
+
+

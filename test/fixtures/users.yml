@@ -1,3 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+mathilde:
+  first_name: Mathilde
+  last_name: Ray
+  email: mathilde.ray@thp.com
+  password_digest: $2a$10$uvW5vLDK8EmkGUXPeO.UPOHwV5HLZN1rQMstCWnLUHV
+
+
 
 
