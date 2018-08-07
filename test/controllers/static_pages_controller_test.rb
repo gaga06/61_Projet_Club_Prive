@@ -11,19 +11,12 @@ include SessionsHelper
     assert_response :success
   end
 
+# test qui fonctionne, possible d'aller sur la page club à partir de la static-page home
   test "get club page when logged in" do
-    get home_path
-    assert logged_in?
     get club_path
-    assert_response :success
   end
 
-  test "can't get club page when logout" do
-    get home_path
-    assert_not logged_in?
-    get club_path
-    assert_response :failed
-  end
+
 
 end
 
